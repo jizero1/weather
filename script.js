@@ -1,5 +1,4 @@
 // apiKey : 발급받은 api키, city : 조회할 도시이름, url : api url
-// const apiKey = 'd023cf7a792d5fc8da15034053f88758';
 import key from "./apikey.js";
 const city = 'Seoul';
 const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key.weatherKey}`;
