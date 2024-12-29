@@ -1,5 +1,5 @@
 const key = {
-    weatherKey:"dd",
+    weatherKey:"ddd",
 };
 
 export default key;
