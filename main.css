@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+.html {
+    overflow-x: hidden; /* 모바일에서 가로스크롤 방지*/
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Serif KR", serif;
+}
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body {
+    min-height: 100vh;
+    background: rgb(240, 240, 255);
+}
+.weather-container {
+    width: 400px;
+    background: white;
+    border-radius: 10px;
+}
+.weather-container header {
+    text-align: center;
+    padding: 50px 0px 20px 0px;
+}
+header .date {
+    padding-bottom: 15px;
+    font-size: 20px;
+    font-weight: 700;
+}
+header .locationIcon {
+}
+header .location {
+    padding-left: 10px;
+    font-size: 15px;
+}
+.weather-icon {
+    text-align: center;
+}
+.weather-icon .icon {
+    font-size: 80px;
+}
+.weather-info {
+    padding: 20px 0px 50px 0px;
+    text-align: center;
+    font-size: 18px;
+}
+.weather-info .statusText {
+    padding-bottom: 10px;
+}

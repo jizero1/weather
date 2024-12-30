@@ -4,13 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>날씨</title>
 </head>
-<body>
-    
-    <div>
-        <p class="weather"></p>
+<body class="center">
+    <div class="weather-container">
+        <!-- 만약, 오늘 눈이 오면 화면에 눈 내리게, 비가오면 비내리게, 해가뜨면..빛? -->
+        <!-- 상단에 오늘 날짜 표시 -->
+         <!-- 중간에 날씨에 따른 이모티콘 -->
+          <!-- 중간에 현재온도를 숫자로 표시 -->
+            <!-- 날씨 상태 표시(구름많음, 해가뜸 등) -->
+        <div class="weather-ani"></div>
+        <header>
+            <p class="date">날짜</p>
+            <div class="locationIcon center">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="location"></p>
+            </div>
+        </header>
+        <div class="weather-icon">
+            <p class="icon"></p>
+        </div>
+        <div class="weather-info">
+            <p class="statusText"></p>
+            <p class="temp"></p>
+            <!-- <p class="status"></p> -->
+        </div>
     </div>
-    <script type="module" src="script.js"></script>
+    <script type="module" src="script.js" defer></script>
 </body>
 </html>
