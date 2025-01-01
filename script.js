@@ -3,7 +3,7 @@ import key from "./apikey.js";
 
 // ---------------- 현재 날짜와 요일 표시 부분 ---------------- //
 let now = new Date();
-let month = now.getMonth();
+let month = now.getMonth()+1;
 let date = now.getDate();
 let day = now.getDay();
 let dayName; // 요일을 한글로 표시
