@@ -1,17 +1,22 @@
 {
   "name": "weather-backend",
   "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jizero1/weather.git"
+  },
   "author": "",
   "license": "ISC",
-  "description": "",
+  "bugs": {
+    "url": "https://github.com/jizero1/weather/issues"
+  },
+  "homepage": "https://github.com/jizero1/weather#readme",
   "dependencies": {
     "express": "^4.21.2"
-  },
-  "type": "module"
+  }
 }

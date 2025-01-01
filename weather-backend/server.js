@@ -1,21 +1,10 @@
-import express from 'express';
-const app = express();
-const port = 5501;
+const express = require('express')
+const app = express()
 
-app.get('/', (req, res) => {
-    res.send('hello world');
-});
+app.listen(8080, () => {
+    console.log('http://localhost:8080 에서 서버 실행중')
+})
 
-app.get('/weather', (req, res) => {
-    const weatherData = {
-        location: 'Seoul',
-        temperature: 22,
-        description: 'clear sky',
-    };
-    res.json(weatherData);
-});
-
-app.listen(port, () => {
-    console.log("server started....");
-    console.log(`server is running at http://localhost:${port}`);
-});
+app.get('/', (요청, 응답) => {
+  응답.send('반갑다')
+}) 
