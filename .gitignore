@@ -2,9 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,node
 
 apikey.js
-node_modules/
-.env
-
 ### Java ###
 # Compiled class file
 *.class
