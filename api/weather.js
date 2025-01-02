@@ -66,7 +66,7 @@
 
 
 import axios from 'axios';
-import key from '../apikey.js';
+import key from './apikey.js';
 import cors from 'cors';  // CORS 미들웨어 추가
 
 export default async function handler(req, res) {
