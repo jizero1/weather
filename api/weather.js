@@ -86,8 +86,9 @@ export default async function handler(req, res) {
       res.status(500).json({ error: `API error: ${error.response.data.message}` });
     } else if (error.request) {
       res.status(500).json({ error: 'API request failed. Please try again later.' });
-    } else {
-      res.status(500).json({ error: 'An unexpected error occurred.' });
-    }
+    } 
+    // else {
+    //   res.status(500).json({ error: 'An unexpected error occurred.' });
+    // }
   }
 }
