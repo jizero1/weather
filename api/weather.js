@@ -92,7 +92,9 @@ export default async function handler(req, res) {
 
   // 날씨 API 호출
   const { lat, lon } = req.query;
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+  // const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+
+  const url = `https://weather-iota-beige.vercel.app/api/weather?lat=${lat}&lon=${lon}`;
 
   try {
     const response = await axios.get(url);  // 날씨 API 요청
