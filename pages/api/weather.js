@@ -65,36 +65,57 @@
 // };
 
 
+// // 필요한 모듈 불러오기
+// // server.js
+// import express from 'express';
+// import cors from 'cors';
+// import dotenv from 'dotenv';
+// import fetch from 'node-fetch';
 
-// dotenv 패키지를 불러옵니다
-require('dotenv').config();
+// dotenv.config(); // .env 파일 로드
+
+// const app = express();
+// const port = process.env.PORT || 3000;
+
+// app.use(cors()); // CORS 설정
+
+// // 날씨 API 처리
+// app.get('/api/weather', async (req, res) => {
+//   const { lat, lon } = req.query;
+//   const apiKey = process.env.WEATHER_API_KEY;
+//   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=kr`;
+
+//   try {
+//     const response = await fetch(url);
+//     const data = await response.json();
+//     res.status(200).json(data);
+//   } catch (error) {
+//     res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });
+//   }
+// });
+
+// // 서버 시작
+// app.listen(port, () => {
+//   console.log(`Server is running on http://localhost:${port}`);
+// });
+
+
+
+// /api/weather.js
 
 import axios from 'axios';
 
 export default async function handler(req, res) {
   const { lat, lon } = req.query;
-  
-  // 환경 변수에서 API 키를 가져옵니다.
   const apiKey = process.env.WEATHER_API_KEY;
 
-  // OpenWeatherMap API URL에 API Key를 포함하여 요청
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=kr`;
 
-
-  console.log('Weather API response:', response.data); 
-  
   try {
-    const response = await axios.get(url);  // 날씨 API 요청
-    console.log('Weather API response:', response.data); 
-    res.status(200).json(response.data);  // 성공적인 응답
+    const response = await axios.get(url);
+    res.status(200).json(response.data);
   } catch (error) {
-    if (error.response) {
-      res.status(500).json({ error: `API error: ${error.response.data.message}` });
-    } else if (error.request) {
-      res.status(500).json({ error: 'API request failed. Please try again later.' });
-    } 
-    else {
-      res.status(500).json({ error: 'An unexpected error occurred.' });
-    }
+    console.error('API 요청 실패', error);
+    res.status(500).json({ error: '날씨 정보를 가져오는 데 실패했습니다.' });
   }
 }
