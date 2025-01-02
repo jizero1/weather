@@ -2,10 +2,10 @@
   "name": "weather-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "weather.js",
+  "main": "server/index.js",
   "type": "module",
   "scripts": {
-    "start": "node weather.js",
+    "start": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jizero1/weather#readme",
   "dependencies": {
+    "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2"

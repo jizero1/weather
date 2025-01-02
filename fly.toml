@@ -1,0 +1,12 @@
+app = "weather-app"
+
+[build]
+  builder = "heroku/buildpacks:nodejs"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [services.ports]
+    handlers = ["http"]
+    port = 80
