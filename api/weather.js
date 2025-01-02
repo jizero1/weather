@@ -67,19 +67,38 @@
 
 import axios from 'axios';
 import key from './apikey.js';
-import cors from 'cors';  // CORS 미들웨어 추가
+import Cors from 'cors';  // CORS 미들웨어를 가져옵니다.
 
-export default async function handler(req, res) {
-  // CORS 미들웨어 사용
-  cors()(req, res, async () => {
-    const { lat, lon } = req.query;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+// CORS 미들웨어를 초기화합니다.
+const cors = Cors({
+  methods: ['GET', 'HEAD'],
+});
 
-    try {
-      const response = await axios.get(url);  // API 호출
-      res.status(200).json(response.data);  // 성공적인 응답
-    } catch (error) {
-      res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });  // 오류 응답
-    }
+// CORS 미들웨어를 API 핸들러에 적용하는 함수입니다.
+function runMiddleware(req, res, fn) {
+  return new Promise((resolve, reject) => {
+    fn(req, res, (result) => {
+      if (result instanceof Error) {
+        return reject(result);
+      }
+      return resolve(result);
+    });
   });
 }
+
+export default async function handler(req, res) {
+  // CORS를 처리하는 미들웨어 실행
+  await runMiddleware(req, res, cors);
+
+  // 날씨 API 호출
+  const { lat, lon } = req.query;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+
+  try {
+    const response = await axios.get(url);  // 날씨 API 요청
+    res.status(200).json(response.data);  // 성공적인 응답
+  } catch (error) {
+    res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });  // 오류 처리
+  }
+}
+
