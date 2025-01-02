@@ -82,6 +82,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await axios.get(url);  // 날씨 API 요청
+    console.log('Weather API response:', response.data); 
     res.status(200).json(response.data);  // 성공적인 응답
   } catch (error) {
     if (error.response) {
@@ -89,8 +90,8 @@ export default async function handler(req, res) {
     } else if (error.request) {
       res.status(500).json({ error: 'API request failed. Please try again later.' });
     } 
-    // else {
-    //   res.status(500).json({ error: 'An unexpected error occurred.' });
-    // }
+    else {
+      res.status(500).json({ error: 'An unexpected error occurred.' });
+    }
   }
 }
