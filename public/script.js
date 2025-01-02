@@ -1,5 +1,5 @@
 // api키를 숨기기 위해 .gitignore파일에 apikey.js파일을 넣음. (github에 표시안됨)
-import key from "./weather-backend/apikey.js";
+import key from "../apikey.js";
 
 // ---------------- 현재 날짜와 요일 표시 부분 ---------------- //
 let now = new Date();
@@ -38,7 +38,7 @@ document.querySelector('.date').innerText=`${dateAdd}`;
 navigator.geolocation.getCurrentPosition(function(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    const url = `/weather?lat=${lat}&lon=${lon}`;
+    const url = `/api/weather?lat=${lat}&lon=${lon}`;
 
     fetch(url)
     .then(response => response.json())
