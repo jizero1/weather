@@ -66,7 +66,7 @@
 
 
 
-// dotenv 패키지를 불러옵니다.
+// dotenv 패키지를 불러옵니다
 require('dotenv').config();
 
 import axios from 'axios';
