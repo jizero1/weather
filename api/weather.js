@@ -67,16 +67,16 @@
 
 
 
-
-
 import axios from 'axios';
-import key from './apikey.js';
 
 export default async function handler(req, res) {
   const { lat, lon } = req.query;
   
+  // 환경 변수에서 API 키를 가져옵니다.
+  const apiKey = process.env.WEATHER_API_KEY;
+
   // OpenWeatherMap API URL에 API Key를 포함하여 요청
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=kr`;
 
   try {
     const response = await axios.get(url);  // 날씨 API 요청
