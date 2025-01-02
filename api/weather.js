@@ -46,20 +46,40 @@
 // });
 
 
+// import axios from 'axios';
+// import key from '../apikey.js'; // 날씨 API 키를 가져옴
+
+// module.exports = async (req, res) => {
+//   // 쿼리에서 lat, lon 값을 받아옴
+//   const { lat, lon } = req.query;
+
+//   // OpenWeatherMap API 호출 URL
+//   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
+
+//   try {
+//     const response = await axios.get(url);  // API 호출
+//     res.status(200).json(response.data);  // 성공적인 응답
+//   } catch (error) {
+//     res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });  // 오류 응답
+//   }
+// };
+
+
 import axios from 'axios';
-import key from '../apikey.js'; // 날씨 API 키를 가져옴
+import key from '../../apikey.js';
+import cors from 'cors';  // CORS 미들웨어 추가
 
-module.exports = async (req, res) => {
-  // 쿼리에서 lat, lon 값을 받아옴
-  const { lat, lon } = req.query;
+export default async function handler(req, res) {
+  // CORS 미들웨어 사용
+  cors()(req, res, async () => {
+    const { lat, lon } = req.query;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
 
-  // OpenWeatherMap API 호출 URL
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}&units=metric&lang=kr`;
-
-  try {
-    const response = await axios.get(url);  // API 호출
-    res.status(200).json(response.data);  // 성공적인 응답
-  } catch (error) {
-    res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });  // 오류 응답
-  }
-};
+    try {
+      const response = await axios.get(url);  // API 호출
+      res.status(200).json(response.data);  // 성공적인 응답
+    } catch (error) {
+      res.status(500).json({ error: '날씨 데이터를 가져오지 못했습니다.' });  // 오류 응답
+    }
+  });
+}
