@@ -1,5 +1,5 @@
 // api키를 숨기기 위해 .gitignore파일에 apikey.js파일을 넣음. (github에 표시안됨)
-import key from "./apikey.js";
+import key from "./weather-backend/apikey.js";
 
 // ---------------- 현재 날짜와 요일 표시 부분 ---------------- //
 let now = new Date();
@@ -38,14 +38,13 @@ document.querySelector('.date').innerText=`${dateAdd}`;
 navigator.geolocation.getCurrentPosition(function(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key.weatherKey}`;
+    const url = `/weather?lat=${lat}&lon=${lon}`;
 
     fetch(url)
     .then(response => response.json())
     .then(data => {
         const city = data.name; // 도시이름
-        const tempKelvin = data.main.temp; // 온도
-        const temp = tempKelvin-273.15; // 온도값을 섭씨로 변환
+        const temp = data.main.temp;
         const description = data.weather[0].description; // 날씨의 상태
         const humidity = data.main.humidity; // 습도
         
@@ -61,18 +60,21 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
         console.log(description);
         const icon = document.querySelector('.icon');
+        icon.innerHTML = '';
         const statusText = document.querySelector('.statusText');
+
+
         switch(description) {
-            case "clear sky" : icon.innerHTML += sun; statusText.innerText = "맑은 하늘"; break; //맑은 하늘
-            case "few clouds" : icon.innerHTML += cloudSun; statusText.innerText = "구름 조금"; break; //구름조금
-            case "sacttered clouds" : icon.innerHTML += cloud; statusText.innerText = "흐린 하늘"; break; //흩어져있는 구름
-            case "broken clouds" : icon.innerHTML += cloud; statusText.innerText = "구름 많음"; break; //구름이 깨진 구름
-            case "overcast clouds": icon.innerHTML += cloud; statusText.innerText = "완전히 흐림"; break; //완전한 흐림
-            case "shower rain" : icon.innerHTML += rain1; statusText.innerText = "소나기"; break; //소나기
-            case "rain" : icon.innerHTML += rain2; statusText.innerText = "비"; break;//비
-            case "thunderstorm" : icon.innerHTML += bolt; statusText.innerText = "천둥 번개";break; //천둥번개
-            case "snow" : icon.innerHTML += snow; statusText.innerText = "눈"; break;//눈
-            case "mist": case "haze": icon.innerHTML += smog; statusText.innerText = "안개";break; //안개,연기
+            case "clear sky" : icon.innerHTML = sun; statusText.innerText = "맑은 하늘"; break; //맑은 하늘
+            case "few clouds" : icon.innerHTML = cloudSun; statusText.innerText = "구름 조금"; break; //구름조금
+            case "scattered clouds" : icon.innerHTML = cloud; statusText.innerText = "흐린 하늘"; break; //흩어져있는 구름
+            case "broken clouds" : icon.innerHTML = cloud; statusText.innerText = "구름 많음"; break; //구름이 깨진 구름
+            case "overcast clouds": icon.innerHTML = cloud; statusText.innerText = "완전히 흐림"; break; //완전한 흐림
+            case "shower rain" : icon.innerHTML = rain1; statusText.innerText = "소나기"; break; //소나기
+            case "rain" : icon.innerHTML = rain2; statusText.innerText = "비"; break;//비
+            case "thunderstorm" : icon.innerHTML = bolt; statusText.innerText = "천둥 번개";break; //천둥번개
+            case "snow" : icon.innerHTML = snow; statusText.innerText = "눈"; break;//눈
+            case "mist": case "haze": icon.innerHTML = smog; statusText.innerText = "안개";break; //안개,연기
         }
         // document.querySelector('.status').innerText=`${description}`;
         document.querySelector('.temp').innerText=`${temp.toFixed(2)}°C`;
