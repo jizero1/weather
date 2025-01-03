@@ -34,6 +34,17 @@ document.querySelector('.date').innerText=`${dateAdd}`;
 // Mist (안개) smog
 // Haze (연기) smog
 
+// 상태코드
+// 맑은날씨 = 800
+// 구름조금 = 801
+// 구름 = 802 ~ 804
+// 가벼운비 = 300 ~ 321
+// 비 = 500 ~ 531
+// 천둥번개 = 200~232
+// 눈 = 600~622
+// 안개,연기,흐림 = 700 ~ 771
+// 바람 = 900
+
 // 현재 위치 기반으로 날씨 확인하기
 navigator.geolocation.getCurrentPosition(function(position) {
     const lat = position.coords.latitude;
@@ -53,8 +64,8 @@ navigator.geolocation.getCurrentPosition(function(position) {
         const cloudSun = `<i class="fa-solid fa-cloud-sun"></i>`;
         const cloud = `<i class="fa-solid fa-cloud"></i>`;
         const smog = `<i class="fa-solid fa-smog"></i>`;
-        const rain1 = `<i class="fa-solid fa-cloud-showers-heavy"></i>`;
-        const rain2 = `<i class="fa-solid fa-cloud-rain"></i>`;
+        const rain1 = `<i class="fa-solid fa-cloud-showers-heavy"></i>`; // 소나기
+        const rain2 = `<i class="fa-solid fa-cloud-rain"></i>`; // 일반적인 비
         const bolt = `<i class="fa-solid fa-cloud-bolt"></i>`;
         const snow = `<i class="fa-solid fa-snowflake"></i>`;
 
@@ -62,7 +73,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
         const icon = document.querySelector('.icon');
         icon.innerHTML = '';
         const statusText = document.querySelector('.statusText');
-
 
         switch(description) {
             case "clear sky" : icon.innerHTML = sun; statusText.innerText = "맑은 하늘"; break; //맑은 하늘
@@ -73,7 +83,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
             case "shower rain" : icon.innerHTML = rain1; statusText.innerText = "소나기"; break; //소나기
             case "rain" : icon.innerHTML = rain2; statusText.innerText = "비"; break;//비
             case "thunderstorm" : icon.innerHTML = bolt; statusText.innerText = "천둥 번개";break; //천둥번개
-            case "snow" : icon.innerHTML = snow; statusText.innerText = "눈"; break;//눈
+            case "snow" : case "light snow" : icon.innerHTML = snow; statusText.innerText = "눈"; break;//눈
             case "mist": case "haze": icon.innerHTML = smog; statusText.innerText = "안개";break; //안개,연기
         }
         // document.querySelector('.status').innerText=`${description}`;
