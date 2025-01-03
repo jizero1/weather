@@ -16,7 +16,7 @@
 }
 body {
     min-height: 100vh;
-    background: rgb(240, 240, 255);
+    background: rgb(95, 109, 161);
 }
 .weather-container {
     width: 400px;
@@ -31,8 +31,6 @@ header .date {
     padding-bottom: 15px;
     font-size: 20px;
     font-weight: 700;
-}
-header .locationIcon {
 }
 header .location {
     padding-left: 10px;
@@ -51,4 +49,11 @@ header .location {
 }
 .weather-info .statusText {
     padding-bottom: 10px;
+}
+
+
+@media screen and (max-width: 576px) {
+    .weather-container {
+        width: 300px;
+    }
 }
