@@ -5,18 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
     <title>날씨</title>
 </head>
 <body class="center">
     <div class="weather-container">
-        <!-- 만약, 오늘 눈이 오면 화면에 눈 내리게, 비가오면 비내리게, 해가뜨면..빛? -->
-        <!-- 상단에 오늘 날짜 표시 -->
-         <!-- 중간에 날씨에 따른 이모티콘 -->
-          <!-- 중간에 현재온도를 숫자로 표시 -->
-            <!-- 날씨 상태 표시(구름많음, 해가뜸 등) -->
         <div class="weather-ani"></div>
         <header>
             <p class="date">날짜</p>
@@ -26,12 +21,16 @@
             </div>
         </header>
         <div class="weather-icon">
-            <p class="icon"></p>
+            <span class="material-symbols-outlined icon"></span>
         </div>
         <div class="weather-info">
             <p class="statusText"></p>
             <p class="temp"></p>
-            <!-- <p class="status"></p> -->
+            <p class="clouds tmp">구름의 양 : </p>
+            <p class="hum tmp">습도 : </p>
+            <p class="windSpeed tmp">바람 속도 : </p>
+            <p class="sunrise tmp">일출 시간 : </p>
+            <p class="sunset tmp">일몰 시간 : </p>
         </div>
     </div>
     <script type="module" src="script.js" defer></script>

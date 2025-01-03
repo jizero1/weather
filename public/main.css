@@ -22,6 +22,7 @@ body {
     width: 400px;
     background: white;
     border-radius: 10px;
+    cursor: pointer;
 }
 .weather-container header {
     text-align: center;
@@ -43,14 +44,22 @@ header .location {
     font-size: 80px;
 }
 .weather-info {
-    padding: 20px 0px 50px 0px;
+    padding: 20px 0px 40px 0px;
     text-align: center;
     font-size: 18px;
 }
 .weather-info .statusText {
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    font-size: 17px;
 }
-
+.weather-info .temp {
+    padding-bottom: 20px;
+}
+.weather-info .tmp {
+    font-size: 12px;
+    color: grey;
+    padding-bottom: 2px;
+}
 
 @media screen and (max-width: 576px) {
     .weather-container {
