@@ -1,7 +1,7 @@
 
 ## 프로젝트명 [ 실시간 날씨앱 ⛅]
 <div>
-  <img src="images/img1.PNG" width="350"/>
+  <img src="images/img.PNG" width="350"/>
 </div>
 
 ## 프로젝트 설명
