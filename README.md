@@ -33,7 +33,7 @@ API키를 외부에 노출되지 않도록 환경변수로 관리하며, .gitign
 백엔드가 포함된 페이지를 배포하기 위해 Vercel을 사용하여 배포를 완료했습니다.
 
 ## 기술 스택
-HTML / CSS / JavaScript / OpenWeather API / Express.js / Geolocation API / Axios / dotenv
+HTML / CSS / JavaScript / Node.js / OpenWeather API / Express.js / Geolocation API / Axios / dotenv
 * OpenWeather API : 실시간 날씨를 받기 위해 사용한 외부API
 * Express.js : 서버생성 및 api 요청처리
 * Geolocation API : 사용자의 위치 정보 자동감지
