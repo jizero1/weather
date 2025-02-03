@@ -1,5 +1,5 @@
 
-## 프로젝트명 [ 실시간 날씨앱 ⛅]
+## 프로젝트명 [ 실시간 날씨 ⛅]
 <div>
   <img src="images/img.PNG" width="350"/>
 </div>
@@ -8,7 +8,7 @@
 이 프로젝트는 OpenWeather API를 이용해서 사용자의 현재위치를 기반으로 최신 날씨정보를 가져오고, 기온 / 날씨상태 / 구름의 양 / 습도 / 바람속도 / 일출 및 일몰시간 등을 확인 할 수 있으며, 날씨 이모티콘과 날씨 상태를 알려주는 텍스트를 통해 사용자가 쉽게 이해할 수 있도록 구성된 웹 어플리케이션 입니다.
 
 ## 프로젝트 링크
-[ 실시간 날씨앱 ⛅](https://weather-project-peach-xi.vercel.app/)
+[ 실시간 날씨 ⛅](https://weather-project-peach-xi.vercel.app/)
 
 ## 개발자
 최지영
